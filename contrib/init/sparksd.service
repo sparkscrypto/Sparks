@@ -1,0 +1,22 @@
+[Unit]
+Description=Sparks's distributed currency daemon
+After=network.target
+
+[Service]
+User=Sparkscore
+Group=Sparkscore
+
+Type=forking
+PIDFile=/var/lib/Sparksd/Sparksd.pid
+ExecStart=/usr/bin/Sparksd -daemon -pid=/var/lib/Sparksd/Sparksd.pid \
+-conf=/etc/Sparkscore/Sparks.conf -datadir=/var/lib/Sparksd -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

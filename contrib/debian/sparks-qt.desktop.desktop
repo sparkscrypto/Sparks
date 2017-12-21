@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Sparks
+Comment=Sparks P2P Cryptocurrency
+Exec=Sparks-qt %u
+Terminal=false
+Type=Application
+Icon=Sparks128
+MimeType=x-scheme-handler/Sparks;
+Categories=Office;Finance;
+Name[en_US]=Sparks-qt.desktop

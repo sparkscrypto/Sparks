@@ -1,0 +1,11 @@
+[Protocol]
+exec=Sparks-qt '%u'
+protocol=Sparks
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false
