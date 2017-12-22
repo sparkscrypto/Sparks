@@ -1,3 +1,5 @@
+Discord channel: https://discord.gg/RPXtRG
+
 Sparks Core staging tree 0.12.1
 ===============================
 
