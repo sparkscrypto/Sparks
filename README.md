@@ -5,7 +5,7 @@ Sparks Core staging tree 0.12.1
 
 `master:` [![Build Status](https://travis-ci.org/Sparkscoin/Sparks.svg?branch=master)](https://travis-ci.org/Sparkscoin/Sparks) `v0.12.0.x:` [![Build Status](https://travis-ci.org/Sparkscoin/Sparks.svg?branch=v0.12.0.x)](https://travis-ci.org/Sparkscoin/Sparks/branches) `v0.12.1.x:` [![Build Status](https://travis-ci.org/Sparkscoin/Sparks.svg?branch=v0.12.1.x)](https://travis-ci.org/Sparkscoin/Sparks/branches)
 
-https://www.Sparks.gold
+https://sparks.gold
 
 
 What is Sparks?
