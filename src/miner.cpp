@@ -26,6 +26,7 @@
 #include "util.h"
 #include "utilmoneystr.h"
 #include "masternode-payments.h"
+#include "masternode-sync.h"
 #include "validationinterface.h"
 
 #include <boost/thread.hpp>
