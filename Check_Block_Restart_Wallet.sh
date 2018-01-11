@@ -2,7 +2,7 @@
 #
 # tool to check masternode status / block height and compare it to an external api
 # should be run via crontab once every 5 minutes
-#
+# sudo crontab -e
 # */5 * * * * tool-path.sh
 #
 
