@@ -1,51 +1,33 @@
-# # #                     # # #
-# # # run next 2 commands # # #
-# nano ~/checkmn.sh
-# chmod +x ~/checkmn.sh
-# # #                     # # #
-# # # add task to crontab # # #
-# crontab -e
-# */5 * * * * /bin/sh ~/checkmn.sh
-# # #                     # # #
-# # # check if all works  # # #
-# ./checkmn.sh
-# ./Sparks-cli getinfo
-# ./Sparks-cli masternode status
+#!/bin/bash
+#
+# tool to check masternode status / block height and compare it to an external api
+# should be run via crontab once every 5 minutes
+#
+# */5 * * * * tool-path.sh
+#
 
+# tool paths
+cli='/usr/local/bin/Sparks-cli'
+daemon='/usr/local/bin/Sparksd'
 
-#####################################################################
-cd
-echo Getting current network block..
-wget http://spk.explorerz.top:3019/api/getblockcount -O getblockcount
-netblock=$(cat "getblockcount")
-echo Net Block $netblock
+# data dir
+data="~/.Sparks"
 
-vpsblock=$(./Sparks-cli getinfo | grep blocks)
-vpsblock=${vpsblock#*:}
-vpsblock=${vpsblock%,*}
-echo VPS Block $vpsblock
-vpsblock=$((vpsblock+2))
-echo VPS Block $vpsblock
+# api url
+api_url='http://spk.explorerz.top:3019/api/getblockcount'
 
-if [ "$netblock" -gt "$vpsblock" ]
-then
-  echo "VPS Stucked. Restarting with reindex"
-  cd
-  ./Sparks-cli stop
-  echo Waiting 10 sec after stop...
-  sleep 10
-  cd
-  cd .Sparks
-  rm governance.dat
-  rm netfulfilled.dat
-  rm peers.dat
-  rm -r blocks
-  rm mncache.dat
-  rm -r chainstate
-  rm fee_estimates.dat
-  rm mnpayments.dat
-  rm banlist.dat
-  cd
-  ./Sparksd -daemon -reindex
+# get local and remote block count
+api_blocks=$(curl -s ${api_url})
+local_blocks=$(${cli} getblockcount)
+
+if (( api_blocks > local_blocks )); then
+        # cleaning up
+        ${cli} stop
+        sleep 0.5
+        rm -rf ${data}/{governance.dat,netfulfilled.dat,peers.dat,blocks,mncache.dat,chainstate,fee_estimates.dat,mnpayments.dat,banlist.dat}
+        sleep 1
+        ${daemon} -reindex
+        exit 1
+else
+        exit 0
 fi
-#####################################################################
