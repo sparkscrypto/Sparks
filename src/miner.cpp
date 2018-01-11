@@ -425,8 +425,6 @@ void static BitcoinMiner(const CChainParams& chainparams)
                     }
                     if (!fvNodesEmpty && !IsInitialBlockDownload() && masternodeSync.IsSynced())
                         break;
-                    }
-
                     MilliSleep(1000);
                 } while (true);
             }
