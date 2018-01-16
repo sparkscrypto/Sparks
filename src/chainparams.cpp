@@ -119,7 +119,7 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0x1b3952bab9df804c6f02372bb62df20fa2927030a4e80389ec14c1d86fc921e4"));
 
         vSeeds.push_back(CDNSSeedData("seed.sparks.gold", "seed.sparks.gold"));
-	vSeeds.push_back(CDNSSeedData("seed1.sparks.gold", "seed1.sparks.gold"));
+	vSeeds.push_back(CDNSSeedData("explorer.sparks.gold", "explorer.sparks.gold"));
 
         // Sparks addresses start with 'G'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,38);
@@ -153,9 +153,10 @@ public:
 	    (	500, uint256S("0x00000004895911edc563a815f75563032bd17ef5322d0e37d58bff7f84c17274"))
 	    (	1000, uint256S("0x00000000020ff055aa61a4d11d1d66730d7e0534dc8570dc2d40c45b675b2582"))
 	( 5000, uint256S("0x0000000000463bee3178a7539e04f4ec9d1df1608d8e2e8f4bc759c6cb866abb"))
-	( 10000, uint256S("0x00000000000d9619d89073835b04dcfcb5f5188a0454daace5d9498953b277be")),
-	1515164230, // * UNIX timestamp of last checkpoint block
-            23586,    // * total number of transactions between genesis and last checkpoint
+	( 10000, uint256S("0x00000000000d9619d89073835b04dcfcb5f5188a0454daace5d9498953b277be"))
+	( 15000, uint256S("0x0000000000336fe7dd80c9a785df28d2b5154551f5345539d62917cf9eb46c79")),
+	1515798437, // * UNIX timestamp of last checkpoint block
+            36978,    // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
             2800        // * estimated number of transactions per day after checkpoint
         };
